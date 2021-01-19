@@ -1,0 +1,90 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    background: #D3CCE3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+h2,h3,h4,h5,h6 {
+    font-weight: normal;
+}
+
+.hero
+{
+    display:block;
+    text-align: center;
+    padding:2rem;   
+}
+
+.form
+{
+    padding:1rem;
+    display: block;
+    text-align: center;
+}
+
+.buttons
+{
+    padding :2rem;
+}
+
+.flex-row
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.col
+{
+    flex-basis: 25vw;
+    flex-direction: column;
+    text-align: center;
+    background: #fffc00;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ffffff, #fffc00);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ffffff, #fffc00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    border-radius: 10px;
+}
+
+.txt, .txt:focus
+{
+    border-radius: 10px;
+    text-align: center;
+    padding:10px;
+}
+
+.add
+{  
+    text-align: center;
+    padding:1em;
+
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 100%;
+    background-color:#3498db;
+    color:white;
+    border:none;
+    border-width: 2px;
+    transition:400ms;
+}
+
+.add:hover
+{
+    color:black;
+    background-color: #e74c3c;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+a{
+    padding:1rem;
+    color:#e74c3c;
+    cursor: pointer;
+}
+
+li
+{
+    padding:1em;
+}

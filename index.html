@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <title>
+        Zennode Technologies
+    </title>
+    <script src="https://kit.fontawesome.com/4426ff7870.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="hero">
+        <h1 class="heading">Zennode Technologies</h1>
+        <h3 class="heading">Screening Test</h3>
+    </div>
+    <div class="form">
+        <input type="text" id="txt" class="txt" placeholder="Just Type and Press Enter!" autofocus>
+
+        <div class="buttons">
+            <button id="add" class="add"><i class="fas fa-plus"></i></button>
+            <!-- <button id="del" class="del">Delete</button> -->
+        </div>
+    </div>
+    <div class="flex-row">
+        <div class="col">
+            <h3>Numbers Added</h3>
+            <ul id="num"></ul>
+        </div>
+        <div class="col">
+            <h3>Alphabets Added</h3>
+            <ul id="alpha"></ul>
+        </div>
+        <div class="col">
+            <h3>Alphanumerics Added</h3>
+            <ul id="alphanum"></ul>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        var num_list = [];
+        var alpha_list = [];
+        var alphanum_list = [];
+        var reg_num = /^[0-9]+$/;
+        var reg_alpha = /^[A-Za-z]+$/;
+        var reg_alphanum = /^[A-Za-z0-9]+$/;
+        $('#add').click(function () {
+            // alert("Add Button Pressed");
+            var txt = $('#txt').val();
+            if (reg_num.test(txt)) {
+                // console.log("Number");
+                num_list.push(txt);
+            }
+            else if (reg_alpha.test(txt)) {
+                alpha_list.push(txt);
+            }
+            else if (reg_alphanum.test(txt)) {
+                alphanum_list.push(txt);
+            }
+            // append("<p></p>");  
+            updateList();
+            $("#txt").val("");
+            $("#txt").focus();
+        });
+
+    
+        function delnum(i) {
+                num_list.splice(i, 1);
+                updateList();
+        }
+
+        function delalpha(i) {
+                alpha_list.splice(i, 1);
+                updateList();
+        }
+
+        function delalphanum(i) {
+                alphanum_list.splice(i, 1);
+                updateList();
+        }
+
+        function updateList() {
+            $('#num').html("");
+            $('#alpha').html("");
+            $('#alphanum').html("");
+            for (var i in num_list) {
+                $('#num').append("<li>" + num_list[i] + "<a id='delid' onClick='delnum("+ parseInt(i) +")'>x</a></li>");
+            }
+            for (var i in alpha_list) {
+                $('#alpha').append("<li>" + alpha_list[i] + "<a id='delid' onClick='delalpha("+ parseInt(i) +")'>x</a></li>");
+            }
+            for (var i in alphanum_list) {
+                $('#alphanum').append("<li>" + alphanum_list[i] + "<a id='delid' onClick='delalphanum("+ parseInt(i) +")'>x</a></li>");
+            }
+        }
+
+        $("#txt").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#add").click();
+    }
+});
+    </script>
+</body>
+
+</html>
